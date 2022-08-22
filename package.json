@@ -1,0 +1,39 @@
+{
+  "name": "@taprootio/markdown-page-renderer",
+  "version": "0.1.6",
+  "description": "Markdown page renderer for rollup-plugin-taproot",
+  "main": "dist/markdown-page-renderer.js",
+  "scripts": {
+    "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taprootio/markdown-page-renderer.git"
+  },
+  "author": "Jereme Evans",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taprootio/markdown-page-renderer/issues"
+  },
+  "homepage": "https://github.com/taprootio/markdown-page-renderer#readme",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.4",
+    "markdown-it-multimd-table": "^4.2.0",
+    "markdown-it-toc-done-right": "^4.2.0"
+  },
+  "devDependencies": {
+    "@taprootio/rollup-plugin-taproot": "^0.1.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "eslint": "^8.22.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.77.0",
+    "rollup-plugin-summary": "^1.4.3"
+  }
+}
