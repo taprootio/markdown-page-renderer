@@ -1,6 +1,6 @@
 {
   "name": "@taprootio/markdown-page-renderer",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Markdown page renderer for rollup-plugin-taproot",
   "main": "dist/markdown-page-renderer.js",
   "scripts": {

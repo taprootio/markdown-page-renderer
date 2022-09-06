@@ -1,7 +1,4 @@
-import {
-  PageData,
-  type TaprootPageRenderer,
-} from "@taprootio/rollup-plugin-taproot/dist/models/TaprootPageRenderer"
+import { PageData, PageRenderer } from "@taprootio/rollup-plugin-taproot"
 import MarkdownIt from "markdown-it"
 import Anchor from "markdown-it-anchor"
 import TOC from "markdown-it-toc-done-right"
@@ -20,7 +17,7 @@ const compiler = new MarkdownIt({
   .use(TOC)
   .use(Table)
 
-const MarkdownPageRenderer: TaprootPageRenderer = {
+const MarkdownPageRenderer: PageRenderer = {
   FileMatcher: new RegExp("([a-zA-Z0-9s_\\.-:])+(.md)$"),
   Render: (source: string) => {
     const withYAML = matter(source)
