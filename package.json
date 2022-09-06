@@ -1,10 +1,11 @@
 {
   "name": "@taprootio/markdown-page-renderer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Markdown page renderer for rollup-plugin-taproot",
   "main": "dist/markdown-page-renderer.js",
   "scripts": {
     "build": "rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "push-yalc": "npm run build && yalc publish --store-folder /yalc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,9 +26,9 @@
     "markdown-it-toc-done-right": "^4.2.0"
   },
   "devDependencies": {
-    "@taprootio/rollup-plugin-taproot": "^0.1.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.4",
+    "@taprootio/rollup-plugin-taproot": "^0.1.2",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "eslint": "^8.22.0",

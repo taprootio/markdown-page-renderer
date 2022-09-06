@@ -33,14 +33,10 @@ const MarkdownPageRenderer = {
         const withYAML = matter__default["default"](source);
         const yamlData = withYAML.data;
         const rendered = compiler.render(withYAML.content);
+        console.log(JSON.stringify(yamlData));
         return {
             Contents: rendered,
-            Data: {
-                title: yamlData.title,
-                canonical: yamlData.canonical,
-                lastUpdated: yamlData.lastUpdated,
-                template: yamlData.template,
-            },
+            Data: yamlData,
         };
     },
 };

@@ -1,4 +1,7 @@
-import { type TaprootPageRenderer } from "@taprootio/rollup-plugin-taproot/dist/models/TaprootPageRenderer"
+import {
+  PageData,
+  type TaprootPageRenderer,
+} from "@taprootio/rollup-plugin-taproot/dist/models/TaprootPageRenderer"
 import MarkdownIt from "markdown-it"
 import Anchor from "markdown-it-anchor"
 import TOC from "markdown-it-toc-done-right"
@@ -17,28 +20,18 @@ const compiler = new MarkdownIt({
   .use(TOC)
   .use(Table)
 
-interface MarkdownYAML {
-  title: string
-  lastUpdated?: Date
-  template?: string
-  canonical?: string
-}
-
 const MarkdownPageRenderer: TaprootPageRenderer = {
   FileMatcher: new RegExp("([a-zA-Z0-9s_\\.-:])+(.md)$"),
   Render: (source: string) => {
     const withYAML = matter(source)
-    const yamlData = withYAML.data as MarkdownYAML
+    const yamlData = withYAML.data as PageData
     const rendered = compiler.render(withYAML.content)
+
+    console.log(JSON.stringify(yamlData))
 
     return {
       Contents: rendered,
-      Data: {
-        title: yamlData.title,
-        canonical: yamlData.canonical,
-        lastUpdated: yamlData.lastUpdated,
-        template: yamlData.template,
-      },
+      Data: yamlData,
     }
   },
 }
